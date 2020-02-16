@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".src.main.event.EventFragment">
 
     <LinearLayout
@@ -10,33 +11,47 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <com.github.demono.AutoScrollViewPager
+            android:id="@+id/main_auto_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:stopWhenTouch="true"
+            app:slideInterval="5000"
+            app:slideDirection="right"
+            app:slideDuration="5000"
+            android:layout_marginTop="49dp">
+
+        </com.github.demono.AutoScrollViewPager>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:orientation="horizontal"
             android:weightSum="3">
+
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:src="@drawable/clubservice"/>
+                android:src="@drawable/clubservice" />
+
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:src="@drawable/discountinfo"/>
+                android:src="@drawable/discountinfo" />
+
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:src="@drawable/check"/>
+                android:src="@drawable/check" />
         </LinearLayout>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:src="@drawable/ad2"/>
-
-
+            android:src="@drawable/ad2" />
 
 
     </LinearLayout>

@@ -32,4 +32,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.google.android.material:material:1.1.0-alpha10'
+
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    //api ('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
+    //    exclude module: 'support-v4'
+    //}
+    //implementation 'cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2'
+    implementation 'com.github.demoNo:AutoScrollViewPager:v1.0.2'
 }
