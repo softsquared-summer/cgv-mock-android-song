@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_ticket"
+        android:icon="@drawable/toolbaricon3"
+        android:title="Item"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_popcorn"
+        android:icon="@drawable/toolbaricon2"
+        android:title="Item"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_menu"
+        android:icon="@drawable/toolbaricon1"
+        android:title="Item"
+        app:showAsAction="always" />
+
+</menu>

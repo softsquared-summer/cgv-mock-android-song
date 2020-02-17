@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!-- Color of Tab-->
+    <color name="TabColor">#FFFFFF</color>
+
+    <!-- 메뉴 -->
+    <color name="MenuBackGround">#000000</color>
+    <color name="MenuTextColor">#FFFFFF</color>
 </resources>
