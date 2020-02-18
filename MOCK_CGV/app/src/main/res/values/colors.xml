@@ -10,4 +10,5 @@
     <!-- 메뉴 -->
     <color name="MenuBackGround">#000000</color>
     <color name="MenuTextColor">#FFFFFF</color>
+
 </resources>

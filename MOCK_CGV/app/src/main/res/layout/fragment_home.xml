@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- 맨위에 동영상-->
         <LinearLayout
             android:id="@+id/home_video"
             android:layout_width="match_parent"
@@ -18,6 +19,11 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/advertisment1"/>
+
         <LinearLayout
             android:id="@+id/home_movie_chart_art_house"
             android:layout_width="match_parent"
@@ -25,7 +31,8 @@
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"/>
+                android:layout_height="50dp"
+                android:text="무비차트"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -33,7 +40,8 @@
                 android:background="#A9A9A9"/>
             <com.google.android.material.tabs.TabLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
+                android:layout_height="wrap_content"
+                android:id="@+id/home_tablayout">
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,9 +54,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="#스피드쿠폰"/>
-
             </com.google.android.material.tabs.TabLayout>
-
+            <com.example.mock_cgv.src.main.home.NonSwipeViewPager
+                android:id="@+id/home_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
         </LinearLayout>
 
         <LinearLayout
@@ -87,6 +97,21 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:src="@drawable/ad1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="좋아할 것 같아서"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
+        </LinearLayout>
 
         <TableLayout
             android:layout_width="match_parent"
