@@ -35,10 +35,12 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //툴바
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.main_tb_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false); //to Display titile
 
+        //탭레이아웃 + 
         mTabLayout = findViewById(R.id.main_tl_tabLayout);
         mViewPager = findViewById(R.id.main_vp_viewPager);
         MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount());
