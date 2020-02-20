@@ -37,7 +37,7 @@
             android:id="@+id/login_edt_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="CGV 아이디"/>
+            android:hint="CGV 아이디" />
 
         <EditText
             android:id="@+id/lgin_edt_password"
@@ -62,17 +62,22 @@
         android:layout_height="0dp"
         android:layout_weight="4"
         android:orientation="horizontal">
+
         <TextView
-            android:text="아이디찾기"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="아이디찾기" />
         <TextView
             android:text="비밀번호찾기"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="CJ ONE 통합 회원가입"
+            android:id="@+id/login_tv_signup"
+            android:text="회원가입"
+            android:textStyle="bold"
+            android:textSize="20dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:onClick="onClick"/>
     </LinearLayout>
 </LinearLayout>

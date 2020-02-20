@@ -10,7 +10,7 @@ import retrofit2.Response;
 
 import static com.example.mock_cgv.src.ApplicationClass.getRetrofit;
 
-class MainService {
+public class MainService {
     private final MainActivityView mMainActivityView;
 
     //생성자
@@ -32,8 +32,6 @@ class MainService {
                 //그 바디의 코드를 가져다 쓸 수 있는것 그 코드가 int였으니까 int값인거임
                 if(defaultResponse.getCode()==200){
                     mMainActivityView.validateSuccess(defaultResponse.getMessage());
-                }else if(defaultResponse.getCode()==201){
-                    mMainActivityView.validateSuccess201(defaultResponse.getMessage());
                 }
                 mMainActivityView.validateSuccess(defaultResponse.getMessage());
             }

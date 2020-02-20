@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.Toolbar;
 import com.example.mock_cgv.R;
 import com.example.mock_cgv.src.BaseActivity;
 import com.example.mock_cgv.src.main.interfaces.MainActivityView;
+import com.example.mock_cgv.src.main.login.LogInActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -30,6 +32,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     private ViewPager mViewPager;
     private DrawerLayout mDrawerLayout;
     private Context mContext = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +43,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false); //to Display titile
 
-        //탭레이아웃 + 
+        //탭레이아웃 + 뷰페이져
         mTabLayout = findViewById(R.id.main_tl_tabLayout);
         mViewPager = findViewById(R.id.main_vp_viewPager);
         MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), mTabLayout.getTabCount());
@@ -48,6 +51,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        //드로어 레이아웃
         mDrawerLayout = (DrawerLayout)findViewById(R.id.main_dl_drawer_layout);
         if(mDrawerLayout.isDrawerOpen(Gravity.RIGHT)){
             mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
@@ -56,6 +60,17 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         }
 
     }
+    public void customOnClick(View view) {
+        switch (view.getId()) {
+            case R.id.drawer_tv_login:
+                Intent intent = new Intent(MainActivity.this, LogInActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,11 +109,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     public void validateSuccess(String text) {
         hideProgressDialog();
 
-    }
-
-    @Override
-    public void validateSuccess201(String text) {
-        hideProgressDialog();
     }
 
     @Override

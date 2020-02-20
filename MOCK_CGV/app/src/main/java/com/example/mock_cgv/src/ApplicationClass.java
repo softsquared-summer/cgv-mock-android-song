@@ -20,8 +20,10 @@ public class ApplicationClass extends Application {
     public static MediaType MEDIA_TYPE_JPEG = MediaType.parse("image/jpeg");
 
     //테스트 서버 주소
-    public static String BASE_URL = "http://apis.newvement.com/";
+    public static String TEST_URL = "https://test.winonesong.me";
     //실서버 주소
+//    public static String BASE_URL = "https://winonesong.me";
+    public static String BASE_URL = "http://winonesong.me/";
 
     public static SharedPreferences sSharedPreferences = null;
 
@@ -49,15 +51,18 @@ public class ApplicationClass extends Application {
 
     public static Retrofit getRetrofit(){
         if(retrofit == null){
-            OkHttpClient client = new OkHttpClient.Builder()
+            OkHttpClient client = new OkHttpClient.Builder() //OkHttpClient객체 생성
                     .readTimeout(5000, TimeUnit.MILLISECONDS)
                     .connectTimeout(5000,TimeUnit.MILLISECONDS)
+                    //세션데이터 삽입을 위해 XAccessTokenInterceptor추가
                     .addNetworkInterceptor(new XAccessTokenInterceptor())
                     .build();
 
-            retrofit = new Retrofit.Builder()
+            retrofit = new Retrofit.Builder() //객체생성
                     .baseUrl(BASE_URL)
+                    //위에서 만든 client객체를 추가
                     .client(client)
+                    //json 형식의 response 데이터의 파싱을 위해 Gson 추가
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
