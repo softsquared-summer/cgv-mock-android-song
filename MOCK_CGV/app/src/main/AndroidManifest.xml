@@ -17,7 +17,11 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.main.login.LogInActivity"></activity>
+        <activity android:name=".src.ticketing.TicketingActivity"></activity>
+        <activity android:name=".src.select.SelectMovieActivity" />
+        <activity android:name=".src.main.moviedetail.MovieDetailActivity" />
+        <activity android:name=".src.main.signup.SignUpActivity" />
+        <activity android:name=".src.main.login.LogInActivity" />
         <activity android:name=".src.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

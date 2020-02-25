@@ -2,32 +2,49 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="200dp"
-    android:layout_height="200dp"
-    android:weightSum="10">
+    android:layout_width="230dp"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:background="@drawable/border"
+    android:layout_marginRight="10dp">
+
+    <!-- 좋아할것같아서 에 쓰이는 리사이클러 뷰 아이템-->
+
+
     <ImageView
         android:id="@+id/home_video_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:padding="1dp"
         android:layout_weight="6" />
     <TextView
         android:id="@+id/home_movie_title"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="5dp"
         android:layout_weight="1"/>
     <TextView
         android:id="@+id/home_movie_detail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="5dp"
         android:layout_weight="1"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_centerInParent="true"
-        android:background="#A9A9A9"/>
+        android:background="#d3d3d3"/>
     <TextView
         android:id="@+id/home_detail_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="5dp"
+        android:textAlignment="center"
+        android:gravity="center_vertical"
         android:layout_weight="2"/>
 </LinearLayout>

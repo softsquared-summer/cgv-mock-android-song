@@ -7,10 +7,35 @@
     <!-- Splash -->
     <string name="splash_app_name">Template!!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <!-- MainActivity-->
-    <!-- <stirng name="main_app_name">Template!!</stirng> -->
-    <!-- SubActivity-->
+    <!-- MainActivity Tab-->
+    <string name="main_tab_home">홈</string>
+    <string name="main_tab_event">이벤트</string>
+    <string name="main_tab_fastorder">패스트오더</string>
+    <string name="main_tab_playzone">플레이존</string>
+    <string name="main_tab_my">MY</string>
+
+    <!-- homefragment-->
+    <string name="home_like">좋아할 것 같아서</string>
+
+    <!-- homefragment chart-->
+    <string name="home_chart_movie_chart">무비차트</string>
+    <string name="home_tab_parasite_special">#기생충특별전</string>
+    <string name="home_tab_book_chart">#예매차트</string>
+    <string name="home_tab_speed_coupon">#스피드쿠폰</string>
+
+    <string name="chart_book_now">지금예매</string>
+
+    <string name="main_drawer_book_movie">영화별 예매</string>
+    <string name="main_drawer_book_teather">극장별 예매(상영시간표)</string>
+    <string name="main_drawer_fastorder">패스트오더</string>
+
+    <!--영화상세 페이지-->
+    <string name="movie_detail_tab_related_news">관련소식</string>
+    <string name="movie_detail_tab_review">실관람평</string>
+    <string name="movie_detail_tab_information">영화정보</string>
+    <string name="movie_detail_book_rate">예매율</string>
+    <string name="movie_detail_release_date">개봉일</string>
+    <string name="movie_select_movie_all">전체영화</string>
+    <string name="movie_select_art_hause">아트하우스</string>
 
 </resources>

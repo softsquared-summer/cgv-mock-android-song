@@ -2,9 +2,12 @@ package com.example.mock_cgv.src.main.interfaces;
 
 import com.example.mock_cgv.src.main.models.DefaultResponse;
 
+import java.util.HashMap;
+
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.FieldMap;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -24,4 +27,6 @@ public interface MainRetrofitInterface {
     //데이터를 정의 해논 클래스다.
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
+
+
 }

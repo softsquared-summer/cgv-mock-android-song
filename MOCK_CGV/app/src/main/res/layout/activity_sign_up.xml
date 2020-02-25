@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.main.signup.SignUpActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/signup_edt_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="아이디"/>
+    <EditText
+        android:id="@+id/signup_edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="비밀번호"/>
+    <EditText
+        android:id="@+id/signup_edt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이메일"/>
+    <EditText
+        android:id="@+id/signup_edt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이름"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/signup_tv_male"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:text="남자"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="#87CEFA"
+            android:textAlignment="center"
+            android:onClick="customOnClick"/>
+        <TextView
+            android:id="@+id/signup_tv_female"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:background="#FFC0CB"
+            android:textAlignment="center"
+            android:text="여자"
+            android:onClick="customOnClick"/>
+
+    </LinearLayout>
+    <EditText
+        android:id="@+id/signup_edt_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="생년월일 8자"/>
+    <TextView
+        android:id="@+id/signup_tv_signup"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="회원가입"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textColor="@color/MenuTextColor"
+        android:background="@color/MenuBackGround"
+        android:onClick="customOnClick"/>
+
+
+
+</LinearLayout>
