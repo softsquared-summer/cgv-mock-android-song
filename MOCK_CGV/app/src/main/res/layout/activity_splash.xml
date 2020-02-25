@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".src.splash.SplashActivity">
 
     <ImageView
         android:id="@+id/splash_iv_splash_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/splash_img" />
+        android:background="@drawable/splash" />
 </LinearLayout>

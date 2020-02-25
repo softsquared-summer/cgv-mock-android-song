@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.main.home.HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".src.main.home.HomeFragment"
+    android:id="@+id/home_swipe_refresh_layout">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,45 +27,66 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
+            android:scaleType="fitXY"
             android:src="@drawable/advertisment1"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerInParent="true"
+            android:background="@color/gam_fill"/>
 
         <LinearLayout
             android:id="@+id/home_movie_chart_art_house"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="440dp"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="무비차트"/>
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:textColor="@color/home_important"
+                android:text="@string/home_chart_movie_chart"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_centerInParent="true"
-                android:background="#A9A9A9"/>
+                android:background="#d3d3d3"/>
             <com.google.android.material.tabs.TabLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/home_tablayout">
+                android:id="@+id/home_tablayout"
+                app:tabSelectedTextColor="#4682B4"
+                app:tabIndicatorColor="#00ff0000"
+                app:tabMode="scrollable">
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="#예매차트"/>
+                    android:text="@string/home_tab_book_chart"/>
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="#기생충특별전"/>
+                    android:text="@string/home_tab_parasite_special"/>
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="#스피드쿠폰"/>
+                    android:text="@string/home_tab_speed_coupon"/>
             </com.google.android.material.tabs.TabLayout>
             <com.example.mock_cgv.src.main.home.NonSwipeViewPager
                 android:id="@+id/home_viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="330dp"/>
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerInParent="true"
+            android:background="@color/gam_fill"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,30 +119,52 @@
                 android:src="@drawable/erollment" />
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerInParent="true"
+            android:background="@color/gam_fill"/>
+
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
             android:src="@drawable/ad1" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerInParent="true"
+            android:background="@color/gam_fill"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="vertical">
+            android:layout_height="250dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="좋아할 것 같아서"/>
+                android:text="@string/home_like"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:textColor="@color/home_important"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/home_recycler"
+                android:id="@+id/home_rv_like_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"/>
+                android:layout_height="match_parent"/>
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerInParent="true"
+            android:background="@color/gam_fill"/>
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="wrap_content">
 
             <TableRow android:weightSum="3">
 
@@ -202,7 +251,15 @@
             </TableRow>
 
         </TableLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_centerInParent="true"
+            android:background="@color/gam_fill"/>
+
 
 
     </LinearLayout>
-</ScrollView>
+    </ScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

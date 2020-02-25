@@ -13,8 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mock_cgv.R;
+import com.example.mock_cgv.src.BaseFragment;
 
-public class PlayZoneFragment extends Fragment {
+public class PlayZoneFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

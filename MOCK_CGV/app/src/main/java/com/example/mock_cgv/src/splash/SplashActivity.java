@@ -30,8 +30,6 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-//        ActionBar ab = getSupportActionBar();
-//        ab.hide();
 
         mSplashimage = findViewById(R.id.splash_iv_splash_image);
         final Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.translate);

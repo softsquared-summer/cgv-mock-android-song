@@ -7,13 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.mock_cgv.R;
+import com.example.mock_cgv.src.BaseFragment;
 import com.github.demono.AutoScrollViewPager;
 
 import java.util.ArrayList;
 
 
 
-public class EventFragment extends Fragment {
+public class EventFragment extends BaseFragment {
     AutoScrollViewPager mAutoScrollViewPager;
     ArrayList<String> mData = new ArrayList<>();
     @Nullable

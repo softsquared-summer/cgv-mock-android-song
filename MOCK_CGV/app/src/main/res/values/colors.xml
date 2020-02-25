@@ -2,13 +2,24 @@
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#3CB371</color>
 
     <!-- Color of Tab-->
-    <color name="TabColor">#FFFFFF</color>
+    <color name="main_tab_background">#FFFFFF</color>
+    <color name="main_tab_indicator">#000000</color>
 
     <!-- 메뉴 -->
     <color name="MenuBackGround">#000000</color>
     <color name="MenuTextColor">#FFFFFF</color>
 
+    <!-- 사이사이 갭-->
+    <color name="gam_fill">#e9e9e9</color>
+
+    <color name="home_important">#000000</color>
+
+    <!-- 영화상세페이지-->
+    <color name="movie_detail_book_rate">#FFFFFF</color>
+    <color name="movie_detail_release_date">#FFFFFF</color>
+
+    <color name="drawer_view_color">#1AFFFFFF</color>
 </resources>

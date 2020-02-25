@@ -1,5 +1,7 @@
 package com.example.mock_cgv.src.main.signup;
 
+import android.util.Log;
+
 import com.example.mock_cgv.src.main.interfaces.MainActivityView;
 import com.example.mock_cgv.src.main.interfaces.MainRetrofitInterface;
 import com.example.mock_cgv.src.main.models.DefaultResponse;
@@ -8,15 +10,18 @@ import com.example.mock_cgv.src.main.signup.interfaces.SignUpRetrofitInterface;
 import com.example.mock_cgv.src.main.signup.models.SignUpResponse;
 
 import org.json.JSONObject;
-
 import java.io.IOException;
 
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.mock_cgv.src.ApplicationClass.MEDIA_TYPE_JSON;
 import static com.example.mock_cgv.src.ApplicationClass.getRetrofit;
+import static com.example.mock_cgv.src.ApplicationClass.retrofit;
 
 public class SignUpService {
     private final SignUpActivityView mSignUpActivityView;
@@ -38,8 +43,10 @@ public class SignUpService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        final String body = jsonObject.toString();
-        signUpRetrofitInterface.SignUp(body).enqueue(new Callback<SignUpResponse>() {
+        Log.e("json","생성한 json: "+jsonObject.toString());
+        String body = jsonObject.toString();
+        RequestBody requestBody = RequestBody.Companion.create(body, MEDIA_TYPE_JSON);
+        signUpRetrofitInterface.SignUp(requestBody).enqueue(new Callback<SignUpResponse>() {
             @Override
             public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
                 SignUpResponse signUpResponse = response.body();
@@ -54,28 +61,3 @@ public class SignUpService {
 }
 
 
-
-//    void getTest(){
-//        final SignUpRetrofitInterface signUpRetrofitInterface = getRetrofit().create(SignUpRetrofitInterface.class);
-//        signUpRetrofitInterface.getTest().enqueue(new Callback<DefaultResponse>() {
-//            @Override
-//            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-//                final DefaultResponse defaultResponse = response.body();
-//                //defaultResponse의 바디를 가져오면
-//                if(defaultResponse == null){
-//                    mSignUpActivityView.validateFailure(null);
-//                    return;
-//                }
-//                //그 바디의 코드를 가져다 쓸 수 있는것 그 코드가 int였으니까 int값인거임
-//                if(defaultResponse.getCode()==200){
-//                    mSignUpActivityView.validateSuccess(defaultResponse.getMessage());
-//                }
-//                mSignUpActivityView.validateSuccess(defaultResponse.getMessage());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-//                mSignUpActivityView.validateFailure(null);
-//            }
-//        });
-//    }

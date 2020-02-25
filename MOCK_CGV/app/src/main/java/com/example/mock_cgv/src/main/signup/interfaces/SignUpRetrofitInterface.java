@@ -32,16 +32,8 @@ public interface SignUpRetrofitInterface {
     @POST("/test")
     Call<DefaultResponse> postTest(@Body RequestBody params);
 
-//    @FormUrlEncoded
     @POST("/users")
     Call<SignUpResponse> SignUp(
-            @Body String body
+            @Body RequestBody body
     );
 }
-//
-//            @Field("userId") String userId,
-//            @Field("pw") String pw,
-//            @Field("email") String email,
-//            @Field("userName") String userName,
-//            @Field("sexStatus") int sexStatus,
-//            @Field("ageStatus") int ageStatus

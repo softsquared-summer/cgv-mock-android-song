@@ -37,14 +37,6 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     }
     public void customOnClick(View view) {
         switch (view.getId()) {
-            case R.id.signup_tv_signup:
-                mId=mEdtSignUpId.getText().toString();
-                mPwd=mEdtSignUpPwd.getText().toString();
-                mEmail=mEdtSignUpEmail.getText().toString();
-                mName=mEdtSignUpName.getText().toString();
-                mBirthday=Integer.parseInt(mEdtSignUpBirthday.getText().toString());
-                sendPostSignUp(mId,mPwd,mEmail,mName,mSexState,mBirthday);
-                break;
             case R.id.signup_tv_male:
                 mSexState=1;
                 showCustomToast("남자");
@@ -52,6 +44,14 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
             case R.id.signup_tv_female:
                 mSexState=2;
                 showCustomToast("여자");
+                break;
+            case R.id.signup_tv_signup:
+                mId=mEdtSignUpId.getText().toString();
+                mPwd=mEdtSignUpPwd.getText().toString();
+                mEmail=mEdtSignUpEmail.getText().toString();
+                mName=mEdtSignUpName.getText().toString();
+                mBirthday=Integer.parseInt(mEdtSignUpBirthday.getText().toString());
+                sendPostSignUp(mId,mPwd,mEmail,mName,mSexState,mBirthday);
                 break;
             default:
                 break;

@@ -4,30 +4,43 @@
     android:layout_width="270dp"
     android:layout_height="match_parent"
     android:layout_gravity="end"
-    android:background="@color/MenuBackGround">
+    android:background="@drawable/black">
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:orientation="horizontal">
+            android:layout_height="150dp"
+            android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/main_drawer_picture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/profile"/>
             <TextView
                 android:id="@+id/drawer_tv_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:text="로그인"
-                android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="15dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/MenuTextColor"
+                android:background="@drawable/drawer_log_in"
                 android:onClick="customOnClick" />
+
 
         </LinearLayout>
 
@@ -35,46 +48,52 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_centerInParent="true"
-            android:background="@color/MenuTextColor" />
+            android:background="@color/drawer_view_color" />
         <TextView
+            android:id="@+id/drawer_tv_ticketing"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="영화별 예매"
+            android:text="@string/main_drawer_book_movie"
+            android:onClick="customOnClick"
+            android:gravity="center_vertical"
             android:textAlignment="center"
             android:textColor="@color/MenuTextColor"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_centerInParent="true"
-            android:background="@color/MenuTextColor" />
+            android:background="@color/drawer_view_color" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="극장별 예매(상영시간표)"
+            android:gravity="center_vertical"
+            android:text="@string/main_drawer_book_teather"
             android:textAlignment="center"
             android:textColor="@color/MenuTextColor"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_centerInParent="true"
-            android:background="@color/MenuTextColor" />
+            android:background="@color/drawer_view_color" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="패스트오더"
+            android:text="@string/main_drawer_fastorder"
+            android:gravity="center_vertical"
             android:textAlignment="center"
             android:textColor="@color/MenuTextColor"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_centerInParent="true"
-            android:background="@color/MenuTextColor" />
+            android:background="@color/drawer_view_color" />
 
         <LinearLayout
-            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:weightSum="3">
             <LinearLayout
                 android:layout_weight="1"
@@ -86,19 +105,38 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:scaleType="fitXY"
                     android:src="@drawable/home" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/drawer_view_color" />
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:scaleType="fitXY"
                     android:src="@drawable/mycgv"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/drawer_view_color" />
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:scaleType="fitXY"
                     android:src="@drawable/discou"/>
 
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:background="@color/drawer_view_color" />
+
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -108,19 +146,38 @@
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
+                    android:scaleType="fitXY"
                     android:layout_height="match_parent"
                     android:src="@drawable/cgvannae"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/drawer_view_color" />
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
+                    android:scaleType="fitXY"
                     android:layout_height="match_parent"
                     android:src="@drawable/special"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/drawer_view_color" />
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
+                    android:scaleType="fitXY"
                     android:layout_height="match_parent"
                     android:src="@drawable/event"/>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:background="@color/drawer_view_color" />
+
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -130,21 +187,39 @@
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
+                    android:scaleType="fitXY"
                     android:layout_height="match_parent"
                     android:src="@drawable/megagine"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/drawer_view_color" />
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
+                    android:scaleType="fitXY"
                     android:layout_height="match_parent"
                     android:src="@drawable/club"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@color/drawer_view_color" />
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
+                    android:scaleType="fitXY"
                     android:layout_height="match_parent"
                     android:src="@drawable/center"/>
             </LinearLayout>
 
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"
+            android:background="@color/drawer_view_color" />
 
 
 

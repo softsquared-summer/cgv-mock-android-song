@@ -21,8 +21,9 @@ public class ApplicationClass extends Application {
 
     //테스트 서버 주소
     public static String TEST_URL = "https://test.winonesong.me";
+
     //실서버 주소
-//    public static String BASE_URL = "https://winonesong.me";
+   //public static String BASE_URL = "https://winonesong.me";
     public static String BASE_URL = "http://winonesong.me/";
 
     public static SharedPreferences sSharedPreferences = null;
@@ -48,6 +49,7 @@ public class ApplicationClass extends Application {
             sSharedPreferences = getApplicationContext().getSharedPreferences(TAG, Context.MODE_PRIVATE);
         }
     }
+
 
     public static Retrofit getRetrofit(){
         if(retrofit == null){

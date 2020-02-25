@@ -13,9 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mock_cgv.R;
+import com.example.mock_cgv.src.BaseFragment;
 
 
-public class FastOrderFragment extends Fragment {
+public class FastOrderFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
