@@ -38,4 +38,13 @@
     <string name="movie_select_movie_all">전체영화</string>
     <string name="movie_select_art_hause">아트하우스</string>
 
+    <!-- 회원가입-->
+    <string name="sign_up_name">이름이 뭐에요?</string>
+    <string name="sign_up_sex">성별은요?</string>
+    <string name="sign_up_birthday">법정생년월일 8자리</string>
+    <string name="sign_up_birthday_request">생일이 궁굼해요</string>
+    <string name="sign_up_get_id">아이디를 입력하세요</string>
+    <string name="sign_up_get_password">비밀번호를 입력하세요</string>
+    <string name="sign_up_get_email">이메일을 입력하세요</string>
+
 </resources>

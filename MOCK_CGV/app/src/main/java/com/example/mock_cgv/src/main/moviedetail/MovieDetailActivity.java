@@ -28,6 +28,8 @@ import com.example.mock_cgv.src.main.login.LogInActivity;
 import com.example.mock_cgv.src.main.moviedetail.interfaces.MovieDetailActivityView;
 import com.example.mock_cgv.src.main.moviedetail.models.MovieDetailResponse;
 import com.example.mock_cgv.src.main.moviedetail.movieinfo.MovieInfoFragment;
+import com.example.mock_cgv.src.select.SelectMovieActivity;
+import com.example.mock_cgv.src.ticketing.TicketingActivity;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.annotations.SerializedName;
 
@@ -43,15 +45,17 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailActi
 
     //서버로부터 받아올 영화 디테일들
     ArrayList<ActorsName> Actors = new ArrayList<>(); //영화배우들 정보
-    String mTitle,mTitleEn,mReleaseDate,mDirector,mDescription,mGenre,mMainImg,mSubImg,mVideo,mActorsName,mActorsEnNmae;
-    int mViewAge,mRunningTime,mGoldenEggRatio,mTicketingRatio;
+    String mTitle,mTitleEn,mReleaseDate,mDirector,mDirectorImg,mDirectorEnName,mDescription,mGenre,mThumbnail,mSubImg,mVideo,mActorsName,mActorsEnNmae,mActorsImg,mTicketingRatio;
+    int mViewAge,mRunningTime,mGoldenEggRatio;
+
+
+
 
     ImageView mIvMovieDetailMainImg,mIvMovieDetailSubImg;
     TextView mTvMovieDetailTitle,mTvMovieDetailEnTitle,mTvMovieDetailReleaseDate,mTvMovieDetailTicketingRatio;
 
-//    DrawerLayout mDrawerLayout;
-//    private TextView mTvDrawerLogin;
-//    String mLoginState;
+    //intent로 넘어온 movieid;
+    int mMovieId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +69,10 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailActi
 
         //ChartRecyclerViewAdapter의 ViewHolder에서 넘어옴(영화 아이디 담아서 넘어옴)
         Intent intent = getIntent();
-        int movieid = intent.getExtras().getInt("movieid");
+        mMovieId= intent.getExtras().getInt("movieid");
 
         //인텐트로 받은 영화 아이디를 사용해서 서버에 영화 상세 정보 요청한다.
-        MovieDetailService movieDetailService = new MovieDetailService(this,movieid);
+        MovieDetailService movieDetailService = new MovieDetailService(this,mMovieId);
         movieDetailService.getMovieDetails();
 
         mIvMovieDetailMainImg = findViewById(R.id.movie_detail_main_img);
@@ -83,7 +87,7 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailActi
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false); //to Display titile
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.backicon);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
 
     }
 
@@ -113,40 +117,41 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailActi
     @Override
     public void GetInfoSuccess(String message, MovieDetailResponse.Result result) {
         //영화 상세 정보 받는다.
-        Log.e("성공","굿굿");
         mTitle=result.getTitle();
         mTitleEn=result.getTitleEn();
+        mViewAge=result.getViewAge();
         mReleaseDate=result.getReleaseDate();
+        mRunningTime=result.getRunningTime();
         mDirector=result.getDirector();
+        mDirectorEnName=result.getDirectorEnName();
         mDescription=result.getDescription();
         mGenre=result.getGenre();
-        mMainImg=result.getMainImg();
+        mThumbnail=result.getThumbnail();
         mSubImg=result.getSubImg();
         mVideo=result.getVideo();
-        mViewAge=result.getViewAge();
-        mRunningTime=result.getRunningTime();
         mGoldenEggRatio=result.getGoldenEggRatio();
         mTicketingRatio=result.getTicketingRatio();
         for(int i=0;i<result.getActors().size();i++){
             mActorsName=result.getActors().get(i).actorsName;
             mActorsEnNmae=result.getActors().get(i).actorsEnName;
-            ActorsName actorsName = new ActorsName(mActorsName,mActorsEnNmae);
+            mActorsImg=result.getActors().get(i).actorsImg;
+            ActorsName actorsName = new ActorsName(mActorsName,mActorsEnNmae,mActorsImg);
             Actors.add(actorsName);
 
         }
 
-        Glide.with(this).load(mMainImg).into(mIvMovieDetailMainImg);
+        Glide.with(this).load(mThumbnail).into(mIvMovieDetailMainImg);
         Glide.with(this).load(mSubImg).into(mIvMovieDetailSubImg);
         mTvMovieDetailTitle.setText(mTitle);
         mTvMovieDetailEnTitle.setText(mTitleEn);
 
         //뷰페이져3개 생성
-        MovieDetailViewPagerAdapter movieDetailViewPagerAdapter = new MovieDetailViewPagerAdapter(getSupportFragmentManager(), mMovieDetailTabLayout.getTabCount(),result);
+        MovieDetailViewPagerAdapter movieDetailViewPagerAdapter = new MovieDetailViewPagerAdapter(getSupportFragmentManager(), mMovieDetailTabLayout.getTabCount(),result,mMovieId);
         mMovieDetailNonSwipeViewPager.setAdapter(movieDetailViewPagerAdapter);
         mMovieDetailNonSwipeViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mMovieDetailTabLayout));
         mMovieDetailTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mMovieDetailNonSwipeViewPager));
 
-        mTvMovieDetailReleaseDate.setText(mReleaseDate+" 개봉");
+        mTvMovieDetailReleaseDate.setText(mReleaseDate);
         mTvMovieDetailTicketingRatio.setText("예매율 "+mTicketingRatio+"% ·");
     }
 
@@ -156,4 +161,19 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailActi
 
     }
 
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.movie_detail_btn_book:
+                Intent intent=new Intent(this, TicketingActivity.class);
+                intent.putExtra("movieid",mMovieId);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void onclick(View view) {
+        showCustomToast("서비스 준비중입니다.");
+    }
 }

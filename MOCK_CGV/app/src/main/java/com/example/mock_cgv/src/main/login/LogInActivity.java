@@ -1,20 +1,18 @@
 package com.example.mock_cgv.src.main.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.example.mock_cgv.R;
 import com.example.mock_cgv.src.BaseActivity;
 import com.example.mock_cgv.src.main.MainActivity;
-import com.example.mock_cgv.src.main.interfaces.MainActivityView;
 import com.example.mock_cgv.src.main.login.interfaces.LogInActivityView;
+import com.example.mock_cgv.src.main.login.models.LogInResponse;
 import com.example.mock_cgv.src.main.signup.SignUpActivity;
 
 import static com.example.mock_cgv.src.ApplicationClass.X_ACCESS_TOKEN;
@@ -32,14 +30,51 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
 
         //툴바
         androidx.appcompat.widget.Toolbar login_toolbar=findViewById(R.id.login_tb_toolbar);
-        login_toolbar.setTitle("로그인");
         setSupportActionBar(login_toolbar);
+        getSupportActionBar().setTitle("로그인");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+
+
+
+
 
         //로그인
         mEdtUserId=(EditText)findViewById(R.id.login_edt_userid);
         mEdtPwd=(EditText)findViewById(R.id.login_edt_pwd);
 
     }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu2, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case android.R.id.home :
+                finish();
+                return true;
+            case R.id.menu2_menu :
+                showCustomToast("드로어레이아웃");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_tv_signup:
@@ -51,6 +86,7 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
                 mPwd=mEdtPwd.getText().toString();
                 sendPostLogIn(mUserId,mPwd);
                 break;
+
             default:
                 break;
         }
@@ -65,27 +101,27 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
 
     @Override
     public void LogInFail() {
-        showCustomToast("실패");
+        showCustomToast("로그인 실패");
         hideProgressDialog();
     }
 
     @Override
-    public void LogInSuccess(String message, int code, String jwt) {
+    public void LogInSuccess(String message, LogInResponse.Result result, int code) {
         hideProgressDialog();
-        if(code==100){
+        if(code ==100){
             //값저장
             SharedPreferences.Editor editor = sSharedPreferences.edit();
-            editor.putString(X_ACCESS_TOKEN, jwt);
+            editor.putString(X_ACCESS_TOKEN, result.getJwt());
             editor.commit();
 
-            Intent intent = new Intent(LogInActivity.this, MainActivity.class);
-            startActivity(intent);
-
+            showCustomToast("로그인 되었습니다.");
+            onBackPressed();
         }
-        else if(code==200){
+        else{
             showCustomToast(message);
         }
-
     }
+
+
 
 }

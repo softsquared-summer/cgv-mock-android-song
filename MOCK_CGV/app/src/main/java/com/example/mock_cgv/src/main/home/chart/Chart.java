@@ -8,9 +8,9 @@ public class Chart {
     private String releaseDate;
     private String ImgUrl;
     private int goldenEggRatio;
-    private int ticketingRatio;
+    private String ticketingRatio;
 
-    public Chart(int id, String title, int viewAge, String releaseDate, String imgUrl, int goldenEggRatio, int ticketingRatio) {
+    public Chart(int id, String title, int viewAge, String releaseDate, String imgUrl, int goldenEggRatio, String ticketingRatio) {
         this.id = id;
         this.title = title;
         this.viewAge = viewAge;
@@ -44,7 +44,7 @@ public class Chart {
         ImgUrl = imgUrl;
     }
 
-    public void setTicketingRatio(int ticketingRatio) {
+    public void setTicketingRatio(String ticketingRatio) {
         this.ticketingRatio = ticketingRatio;
     }
 
@@ -77,7 +77,7 @@ public class Chart {
         return goldenEggRatio;
     }
 
-    public int getTicketingRatio() {
+    public String getTicketingRatio() {
         return ticketingRatio;
     }
 

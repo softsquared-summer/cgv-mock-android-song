@@ -1,9 +1,21 @@
 package com.example.mock_cgv.src.main.home;
 
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.media.MediaPlayer;
+import android.media.ThumbnailUtils;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,15 +34,32 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends BaseFragment {
+
+public class HomeFragment extends BaseFragment  {
     private TabLayout mTabLayout;
     private NonSwipeViewPager mNonSwipeViewPager;
     SwipeRefreshLayout mSwipeRefreshLayout;
 
+    ImageView IvThumbNail;
+    HomeViewPagerAdapter homeViewPagerAdapter;
+
+    FrameLayout frameLayout;
+
+    LinearLayout mLlHomeVideo;
+    View rootView;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        frameLayout=rootView.findViewById(R.id.home_video);
+        frameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=_Yc1Yrlv82g"));
+                startActivity(intent);
+            }
+        });
 
         /*
 
@@ -39,6 +68,16 @@ public class HomeFragment extends BaseFragment {
         좋아할것 같아서는 리사이클러뷰임
 
          */
+
+
+        //무비차트
+        mNonSwipeViewPager = rootView.findViewById(R.id.home_viewpager);
+        mTabLayout = rootView.findViewById(R.id.home_tablayout);
+        homeViewPagerAdapter = new HomeViewPagerAdapter(getChildFragmentManager(), mTabLayout.getTabCount());
+
+        mNonSwipeViewPager.setAdapter(homeViewPagerAdapter);
+        mNonSwipeViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+        mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mNonSwipeViewPager));
 
         //새로고침
         mSwipeRefreshLayout = rootView.findViewById(R.id.home_swipe_refresh_layout);
@@ -53,25 +92,62 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
-                //무비차트
-        mNonSwipeViewPager = rootView.findViewById(R.id.home_viewpager);
-        mTabLayout = rootView.findViewById(R.id.home_tablayout);
-        HomeViewPagerAdapter homeViewPagerAdapter = new HomeViewPagerAdapter(getChildFragmentManager(), mTabLayout.getTabCount());
-        mNonSwipeViewPager.setAdapter(homeViewPagerAdapter);
-        mNonSwipeViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-        mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mNonSwipeViewPager));
+
+//        //좋아할것같아서
+//        ArrayList<String> list = new ArrayList<>();
+//        for (int i = 0; i < 100; i++) {
+//            list.add(String.format("Text %d", i));
+//        }
+//        RecyclerView recyclerView = rootView.findViewById(R.id.home_rv_like_recycler);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+//
+//        HomeRecyclerViewAdapter homeRecyclerViewAdapter = new HomeRecyclerViewAdapter(list);
+//        recyclerView.setAdapter(homeRecyclerViewAdapter);
+
+        //섬네일
+        IvThumbNail=rootView.findViewById(R.id.home_iv_video_thumbnail);
 
 
-        //좋아할것같아서
-        ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            list.add(String.format("Text %d", i));
-        }
-        RecyclerView recyclerView = rootView.findViewById(R.id.home_rv_like_recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        mLlHomeVideo=rootView.findViewById(R.id.home_ll_video);
+        mLlHomeVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url ="http://www.cgv.co.kr/movies/detail-view/?midx=83058";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
 
-        HomeRecyclerViewAdapter homeRecyclerViewAdapter = new HomeRecyclerViewAdapter(list);
-        recyclerView.setAdapter(homeRecyclerViewAdapter);
+        ImageView IvHomeAd1 = rootView.findViewById(R.id.home_ad1);
+        IvHomeAd1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url ="http://www.cgv.co.kr/culture-event/event/detail-view.aspx?idx=20870";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+        ImageView IvHomeLexusAd = rootView.findViewById(R.id.home_iv_lexus_ad);
+        IvHomeLexusAd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url ="https://lexus.co.kr/";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+//        LinearLayout linearLayout=rootView.findViewById(R.id.home_not_yet);
+//        linearLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showCustomToast("준비중 입니다!");
+//            }
+//        });
         return rootView;
+
+
     }
+
+
 }

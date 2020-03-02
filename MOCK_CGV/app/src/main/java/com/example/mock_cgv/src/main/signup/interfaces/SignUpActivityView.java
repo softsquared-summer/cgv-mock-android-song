@@ -5,5 +5,5 @@ public interface SignUpActivityView {
 
 
     void SignUpFail();
-    void SignUpSuccess(String message);
+    void SignUpSuccess(String message, int code);
 }

@@ -40,10 +40,12 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     private DrawerLayout mDrawerLayout;
     private TextView mTvDrawerLogin;
     String mLoginState;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         //툴바
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.main_tb_toolbar);
@@ -59,44 +61,56 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         mTabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
         //드로어 레이아웃
-        mTvDrawerLogin=findViewById(R.id.drawer_tv_login);
-        mLoginState=sSharedPreferences.getString(X_ACCESS_TOKEN,null);
-        mDrawerLayout = (DrawerLayout)findViewById(R.id.drawerlayout_dl_drawer_layout);
-        if(mDrawerLayout.isDrawerOpen(Gravity.RIGHT)){
+        mTvDrawerLogin = findViewById(R.id.drawer_tv_login);
+        mLoginState = sSharedPreferences.getString(X_ACCESS_TOKEN, null);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout_dl_drawer_layout);
+        if (mDrawerLayout.isDrawerOpen(Gravity.RIGHT)) {
             mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
-        }else {
+        } else {
             mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         }
-        if(mLoginState!=null){
+        if (mLoginState != null) {
             mTvDrawerLogin.setText("로그아웃");
-        }
-        else{
+        } else {
             mTvDrawerLogin.setText("로그인");
         }
-
     }
+
     public void customOnClick(View view) {
         switch (view.getId()) {
             case R.id.drawer_tv_login:
-                String ok=sSharedPreferences.getString(X_ACCESS_TOKEN,null);
-                if(mLoginState!=null){
+                String ok = sSharedPreferences.getString(X_ACCESS_TOKEN, null);
+                if (mLoginState != null) {
                     showCustomToast("로그아웃 되었습니다.");
-                    SharedPreferences.Editor editor=sSharedPreferences.edit();
+                    SharedPreferences.Editor editor = sSharedPreferences.edit();
                     editor.remove(X_ACCESS_TOKEN);
                     editor.commit();
-                    mLoginState=sSharedPreferences.getString(X_ACCESS_TOKEN,null);
+                    mLoginState = sSharedPreferences.getString(X_ACCESS_TOKEN, null);
                     mTvDrawerLogin.setText("로그인");
-                }
-                else{
+                } else {
                     Intent intent = new Intent(MainActivity.this, LogInActivity.class);
                     startActivity(intent);
                 }
                 break;
             case R.id.drawer_tv_ticketing:
-                    Intent intent = new Intent(MainActivity.this, SelectMovieActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, SelectMovieActivity.class);
+                startActivity(intent);
+                break;
+//            case R.id.main_logo:
+//                Intent intent1 = new Intent(this, MainActivity.class);
+//                startActivity(intent1);
+//                break;
+            case R.id.drawer_tv_ticketing_theater:
+                showCustomToast("극장별 예매 준비중입니다");
+                break;
+            case R.id.drawer_tv_fast_order:
+                showCustomToast("패스트오더 준비중입니다");
+                break;
+            case R.id.drawer_iv_home:
+                mDrawerLayout.closeDrawer(Gravity.RIGHT);
                 break;
             default:
+                showCustomToast("서비스 준비중입니다");
                 break;
         }
     }
@@ -114,13 +128,13 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         //툴바
         switch (item.getItemId()) {
             case R.id.menu_ticket:
-                showCustomToast("티켓 예약하세요");
+                showCustomToast("예약 기능 준비중입니다.");
                 return true;
             case R.id.menu_popcorn:
-                showCustomToast("패스트 오더");
+                showCustomToast("패스트 오더 기능 준비중입니다.");
                 return true;
             case R.id.menu_menu:
-                if(!mDrawerLayout.isDrawerOpen(Gravity.RIGHT)){
+                if (!mDrawerLayout.isDrawerOpen(Gravity.RIGHT)) {
                     mDrawerLayout.openDrawer(Gravity.RIGHT);
                 }
                 return true;
@@ -128,8 +142,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 
 
     @Override
@@ -143,5 +155,10 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         hideProgressDialog();
         showCustomToast(message == null || message.isEmpty() ? getString(R.string.network_error) : message);
     }
+
+    public void ShowNotYet(View view) {
+        showCustomToast("서비스 준비중 입니다!");
+    }
+
 }
 

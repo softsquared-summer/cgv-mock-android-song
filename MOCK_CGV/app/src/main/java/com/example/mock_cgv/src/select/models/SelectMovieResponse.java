@@ -34,7 +34,7 @@ public class SelectMovieResponse {
     public class Result{
         @SerializedName("id") public int id;
         @SerializedName("title") public String title;
-        @SerializedName("mainImg") public String mainImg;
+        @SerializedName("thumbnail") public String thumbnail;
 
         public int getId(){
             return id;
@@ -42,8 +42,8 @@ public class SelectMovieResponse {
         public String getTitle(){
             return title;
         }
-        public String getMainImg(){
-            return mainImg;
+        public String getThumbnail(){
+            return thumbnail;
         }
     }
 

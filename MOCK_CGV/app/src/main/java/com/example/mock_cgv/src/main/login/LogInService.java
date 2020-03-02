@@ -50,15 +50,8 @@ public class LogInService {
             @Override
             public void onResponse(Call<LogInResponse> call, Response<LogInResponse> response) {
                 LogInResponse logInResponse = response.body();
-
-                String jwt = logInResponse.getResult().getJwt();
-
-                if (logInResponse.getCode() == 100) { //로그인 성공
-                    mLogInActivityView.LogInSuccess(logInResponse.getMessage(), logInResponse.getCode(),jwt);
-
-                } else if (logInResponse.getCode() == 200) { //아이디 비번 틀림
-                    mLogInActivityView.LogInSuccess(logInResponse.getMessage(), logInResponse.getCode(),jwt);
-                }
+                Log.e("login",""+logInResponse.getMessage());
+                mLogInActivityView.LogInSuccess(logInResponse.getMessage(),logInResponse.getResult(),logInResponse.getCode());
             }
 
             @Override

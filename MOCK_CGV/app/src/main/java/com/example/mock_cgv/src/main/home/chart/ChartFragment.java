@@ -29,8 +29,9 @@ public class ChartFragment extends BaseFragment implements ChartFragmentView {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_chart,container,false);
-        mRecyclerView = rootView.findViewById(R.id.chart_recycler);
 
+
+        mRecyclerView = rootView.findViewById(R.id.chart_recycler);
         ChartService chartService = new ChartService(this);
         chartService.getChart();
 
@@ -46,23 +47,23 @@ public class ChartFragment extends BaseFragment implements ChartFragmentView {
     @Override
     public void GetChartSuccess(ArrayList<ChartResponse.Result> results) {
 
-        int id,viewAge,goldenEggRatio,ticketingRatio;
-        String title,releaseDate,mainImg;
+        int id,viewAge,goldenEggRatio;
+        String title,releaseDate,thumbnail,ticketingRatio;
 
         for(int i=0;i<results.size();i++){
             id=results.get(i).id;
             viewAge=results.get(i).viewAge;
             goldenEggRatio=results.get(i).goldenEggRatio;
-            ticketingRatio=results.get(i).ticketingRatio;
+            ticketingRatio= results.get(i).ticketingRatio;
             title=results.get(i).title;
             releaseDate=results.get(i).releaseDate;
-            mainImg=results.get(i).mainImg;
-            Chart chart = new Chart(id,title,viewAge,releaseDate,mainImg,goldenEggRatio,ticketingRatio);
+            thumbnail=results.get(i).thumbnail;
+            Chart chart = new Chart(id,title,viewAge,releaseDate,thumbnail,goldenEggRatio,ticketingRatio);
             items.add(chart);
         }
 
-        Log.e("되나?","ㅇㅇ "+items.get(0).getTitle());
-        //가로
+
+        //가로 리사이클러
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         mChartRecyclerViewAdapter = new ChartRecyclerViewAdapter(items);
         mRecyclerView.setAdapter(mChartRecyclerViewAdapter);

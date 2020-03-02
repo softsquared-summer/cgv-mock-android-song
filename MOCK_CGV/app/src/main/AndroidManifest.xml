@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".src.ticketing.TicketingActivity"></activity>
+        <activity android:name=".src.numberselect.NumberSelectActivity"></activity>
+        <activity android:name=".src.ticketing.TicketingActivity" />
         <activity android:name=".src.select.SelectMovieActivity" />
         <activity android:name=".src.main.moviedetail.MovieDetailActivity" />
         <activity android:name=".src.main.signup.SignUpActivity" />

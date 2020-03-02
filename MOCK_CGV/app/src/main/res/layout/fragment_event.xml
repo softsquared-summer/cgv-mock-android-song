@@ -18,6 +18,8 @@
             app:stopWhenTouch="true"
             app:slideInterval="5000"
             app:slideDirection="right"
+            android:onClick="ShowNotYet"
+
             app:slideDuration="5000"
             android:layout_marginTop="1dp">
 
@@ -27,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:orientation="horizontal"
+            android:onClick="ShowNotYet"
             android:weightSum="3">
 
             <ImageView
@@ -50,6 +53,7 @@
 
         <ImageView
             android:layout_width="match_parent"
+            android:onClick="ShowNotYet"
             android:layout_height="100dp"
             android:src="@drawable/ad2" />
 

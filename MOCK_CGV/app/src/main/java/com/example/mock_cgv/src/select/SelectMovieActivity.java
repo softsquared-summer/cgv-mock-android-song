@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,7 +40,7 @@ public class SelectMovieActivity extends BaseActivity implements SelectMovieActi
         getSupportActionBar().setDisplayShowTitleEnabled(true); //to Display titile
         getSupportActionBar().setTitle("영화선택");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.exicon);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
 
         mRecyclerView=findViewById(R.id.select_movie_recycler);
         SelectMovieService selectMovieService = new SelectMovieService(this);
@@ -78,13 +79,13 @@ public class SelectMovieActivity extends BaseActivity implements SelectMovieActi
     @Override
     public void getMovieListSuccess(ArrayList<SelectMovieResponse.Result> results) {
         int id;
-        String title,mainimg;
+        String title,thunmbnail;
         for(int i=0;i<results.size();i++){
             id=results.get(i).getId();
             title=results.get(i).getTitle();
-            mainimg=results.get(i).getMainImg();
+            thunmbnail=results.get(i).getThumbnail();
 
-            SelectMovieData selectMovieData = new SelectMovieData(mainimg,title,id);
+            SelectMovieData selectMovieData = new SelectMovieData(thunmbnail,title,id);
             items.add(selectMovieData);
 
             int numberOfColumns = 3;

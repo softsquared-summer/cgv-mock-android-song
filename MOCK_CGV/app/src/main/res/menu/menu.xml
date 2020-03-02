@@ -14,7 +14,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_menu"
-        android:icon="@drawable/toolbaricon1"
+        android:icon="@drawable/ic_menu_black_24dp"
         android:title="Item"
         app:showAsAction="always" />
 

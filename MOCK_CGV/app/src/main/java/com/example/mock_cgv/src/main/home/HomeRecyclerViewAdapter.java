@@ -56,7 +56,6 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String text = mData.get(position);
-//        holder.textView1.setText(text);
         holder.tv_home_detail_view.setText(text);
         holder.tv_home_movie_detail.setText(text);
         holder.tv_home_movie_detail.setText(text);
