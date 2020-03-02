@@ -30,7 +30,7 @@ public class SignUpService {
     SignUpService(final SignUpActivityView signUpActivityView) {
         this.mSignUpActivityView = signUpActivityView;
     }
-    void getSignUp(String userId,String pw,String email,String userName,int sexStatus,int ageStatus){
+    void getSignUp(String userId,String pw,String email,String userName,int sex,int birth){
         final SignUpRetrofitInterface signUpRetrofitInterface = getRetrofit().create(SignUpRetrofitInterface.class);
         JSONObject jsonObject = new JSONObject();
         try{
@@ -38,19 +38,18 @@ public class SignUpService {
             jsonObject.put("pw",pw);
             jsonObject.put("email",email);
             jsonObject.put("userName",userName);
-            jsonObject.put("sexStatus",sexStatus);
-            jsonObject.put("ageStatus",ageStatus);
+            jsonObject.put("sex",sex);
+            jsonObject.put("birth",birth);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Log.e("json","생성한 json: "+jsonObject.toString());
         String body = jsonObject.toString();
         RequestBody requestBody = RequestBody.Companion.create(body, MEDIA_TYPE_JSON);
         signUpRetrofitInterface.SignUp(requestBody).enqueue(new Callback<SignUpResponse>() {
             @Override
             public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
                 SignUpResponse signUpResponse = response.body();
-                mSignUpActivityView.SignUpSuccess(signUpResponse.getMessage());
+                mSignUpActivityView.SignUpSuccess(signUpResponse.getMessage(),signUpResponse.getCode());
                 }
             @Override
             public void onFailure(Call<SignUpResponse> call, Throwable t) {

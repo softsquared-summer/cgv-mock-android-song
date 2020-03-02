@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.mock_cgv.R;
 import com.example.mock_cgv.src.main.moviedetail.MovieDetailActivity;
+import com.example.mock_cgv.src.ticketing.TicketingActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -49,10 +50,10 @@ public class ChartRecyclerViewAdapter extends RecyclerView.Adapter<ChartRecycler
         String imageUrl = items.get(position).getImgUrl();
         String title = items.get(position).getTitle();
         String goldeneggratio = Integer.toString(items.get(position).getGoldenEggRatio());
-        String ticketingratio = Integer.toString(items.get(position).getTicketingRatio());
+        String ticketingratio = items.get(position).getTicketingRatio();
         viewHolder.TvTitle.setText(title);
-        viewHolder.TvGoldenEggRatio.setText(goldeneggratio);
-        viewHolder.TvTicketingRatio.setText(ticketingratio);
+        viewHolder.TvGoldenEggRatio.setText(goldeneggratio+"%·");
+        viewHolder.TvTicketingRatio.setText("예매율 "+ticketingratio);
 
 
     }
@@ -86,17 +87,18 @@ public class ChartRecyclerViewAdapter extends RecyclerView.Adapter<ChartRecycler
         @Override
         public void onClick(View v) {
             final Intent intent;
+            int movieid = items.get(getAdapterPosition()).getId();
             switch (v.getId())
             {
                 case R.id.chart_iv_mainImg:
-                    int movieid = items.get(getAdapterPosition()).getId();
                     intent= new Intent(context,MovieDetailActivity.class);
                     intent.putExtra("movieid",movieid);
                     context.startActivity(intent);
                     break;
                 case R.id.chart_book_now:
-                    //TODO 예매창 만드기
-
+                    intent = new Intent(context, TicketingActivity.class);
+                    intent.putExtra("movieid",movieid);
+                    context.startActivity(intent);
                     break;
                 default:
                     break;

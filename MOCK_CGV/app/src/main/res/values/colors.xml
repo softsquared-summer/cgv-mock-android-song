@@ -22,4 +22,8 @@
     <color name="movie_detail_release_date">#FFFFFF</color>
 
     <color name="drawer_view_color">#1AFFFFFF</color>
+
+    <!-- 회원가입창-->
+    <color name="sign_up_toolbar">#FFFFFF</color>
+    <color name="sing_up_top_linear">#FFFFFF</color>
 </resources>

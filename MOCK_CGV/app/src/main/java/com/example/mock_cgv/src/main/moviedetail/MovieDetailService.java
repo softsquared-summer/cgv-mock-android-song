@@ -31,7 +31,6 @@ public class MovieDetailService {
             public void onResponse(Call<MovieDetailResponse> call, Response<MovieDetailResponse> response) {
                 MovieDetailResponse movieDetailResponse = response.body();
                 if(movieDetailResponse.isSuccess==true){
-
                     movieDetailActivityView.GetInfoSuccess(movieDetailResponse.getMessage(),movieDetailResponse.getResult());
 
                 }

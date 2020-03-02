@@ -11,12 +11,14 @@
         android:orientation="vertical">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="230dp"
+            android:onClick="ShowNotYet"
             android:src="@drawable/fastorderad"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:onClick="ShowNotYet"
             android:orientation="horizontal">
             <ImageView
                 android:src="@drawable/noworder"
@@ -35,6 +37,20 @@
                 android:layout_weight="1"/>
 
         </LinearLayout>
+        <ImageView
+            android:src="@drawable/cgvlogovector"
+            android:layout_width="200dp"
+
+            android:layout_gravity="center"
+            android:layout_height="200dp"/>
+        <TextView
+            android:text="서비스 준비중입니다"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
 
     </LinearLayout>

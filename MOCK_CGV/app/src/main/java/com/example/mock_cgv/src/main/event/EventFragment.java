@@ -29,6 +29,10 @@ public class EventFragment extends BaseFragment {
         AutoScrollAdapter scrollAdapter = new AutoScrollAdapter(mData,getActivity());
         mAutoScrollViewPager.setAdapter(scrollAdapter);
         mAutoScrollViewPager.startAutoScroll();
+
+
+
         return rootView;
     }
+
 }

@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitStart"
+            android:onClick="customOnClick"
             android:src="@drawable/cgv" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -60,13 +61,12 @@
             android:text="@string/main_tab_my" />
     </com.google.android.material.tabs.TabLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/main_vp_viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </androidx.viewpager.widget.ViewPager>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/main_vp_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></androidx.viewpager.widget.ViewPager>
 
-</LinearLayout>
+    </LinearLayout>
     <include
         layout="@layout/main_drawer"/>
 </androidx.drawerlayout.widget.DrawerLayout>

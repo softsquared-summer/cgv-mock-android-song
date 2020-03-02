@@ -1,21 +1,21 @@
 package com.example.mock_cgv.src.select;
 
 public class SelectMovieData {
-    private String MainImg;
+    private String Thumbnail;
     private String Title;
     private int id;
 
-    public SelectMovieData(String MainImg,String title,int id){
-        this.MainImg=MainImg;
+    public SelectMovieData(String Thumbnail,String title,int id){
+        this.Thumbnail=Thumbnail;
         this.Title=title;
         this.id=id;
     }
 
-    public void setMainImg(String mainImg){
-        this.MainImg=mainImg;
+    public void setThumbnail(String mainImg){
+        this.Thumbnail=mainImg;
     }
-    public String getMainImg(){
-        return MainImg;
+    public String getThumbnail(){
+        return Thumbnail;
     }
 
     public void setTitle(String title){

@@ -5,6 +5,11 @@ import android.app.ProgressDialog;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView;
+
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
