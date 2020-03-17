@@ -35,8 +35,8 @@ public class ChartService {
             @Override
             public void onResponse(Call<ChartResponse> call, Response<ChartResponse> response) {
                 ChartResponse chartResponse=response.body();
+
                 mChartFragmentView.GetChartSuccess(chartResponse.getResult());
-                Log.e("success","success");
             }
             @Override
             public void onFailure(Call<ChartResponse> call, Throwable t) {

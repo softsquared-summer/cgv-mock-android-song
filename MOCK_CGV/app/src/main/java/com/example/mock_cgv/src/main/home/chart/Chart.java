@@ -9,8 +9,9 @@ public class Chart {
     private String ImgUrl;
     private int goldenEggRatio;
     private String ticketingRatio;
+    private int rnum;
 
-    public Chart(int id, String title, int viewAge, String releaseDate, String imgUrl, int goldenEggRatio, String ticketingRatio) {
+    public Chart(int id, String title, int viewAge, String releaseDate, String imgUrl, int goldenEggRatio, String ticketingRatio,int rnum) {
         this.id = id;
         this.title = title;
         this.viewAge = viewAge;
@@ -18,6 +19,15 @@ public class Chart {
         this.ImgUrl = imgUrl;
         this.goldenEggRatio = goldenEggRatio;
         this.ticketingRatio = ticketingRatio;
+        this.rnum=rnum;
+    }
+
+    public int getRnum() {
+        return rnum;
+    }
+
+    public void setRnum(int rnum) {
+        this.rnum = rnum;
     }
 
     public void setGoldenEggRatio(int goldenEggRatio) {

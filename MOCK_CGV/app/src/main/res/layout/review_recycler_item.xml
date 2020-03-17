@@ -6,25 +6,39 @@
     android:weightSum="10"
     android:background="@drawable/ticketing_item_border">
 
-    <FrameLayout
-        android:id="@+id/review_recycler_item_profile"
+    <LinearLayout
         android:layout_width="0dp"
-        android:padding="10dp"
         android:layout_height="match_parent"
-        android:layout_weight="2">
-        <ImageView
-            android:id="@+id/review_recycler_item_img"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <FrameLayout
+            android:id="@+id/review_recycler_item_profile"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_person_black_24dp"
-            />
-        <ImageView
-            android:id="@+id/review_recycler_item_golden_egg_status"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="right|bottom"/>
-    </FrameLayout>
+            android:layout_height="0dp"
+            android:layout_weight="7">
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:id="@+id/review_recycler_item_img"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal|bottom"
+                android:src="@drawable/user"
+                />
+            <ImageView
+                android:id="@+id/review_recycler_item_golden_egg_status"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_gravity="right|bottom"/>
+        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_weight="8"
         android:layout_width="0dp"
@@ -34,7 +48,6 @@
         <TextView
             android:id="@+id/review_recycler_item_user_id"
             android:layout_width="match_parent"
-            android:textStyle="bold"
             android:textSize="17dp"
             android:textAlignment="textStart"
             android:textColor="#000000"
@@ -44,7 +57,6 @@
             android:id="@+id/review_recycler_item_content"
             android:layout_width="match_parent"
             android:gravity="center_vertical"
-            android:textColor="#000000"
             android:layout_height="0dp"
             android:layout_weight="3"/>
         <TextView

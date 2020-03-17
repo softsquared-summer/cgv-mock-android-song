@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.mock_cgv.R;
 import com.example.mock_cgv.src.BaseFragment;
 
@@ -87,13 +89,12 @@ public class MovieInfoFragment extends BaseFragment   {
         //감독 보여줌
         mTvDirectorName.setText(mDirector);
         mTvDirectorEnName.setText(mDirectorEnName);
-        Glide.with(this).load(mDirectorImg).into(mIvDirectorImg);
-
+        Glide.with(this).load(mDirectorImg).apply(new RequestOptions().circleCrop()).into(mIvDirectorImg);
 //        mIvDirectorImg.setBackground(new ShapeDrawable(new OvalShape()));
 //        mIvDirectorImg.setClipToOutline(true);
 
         try {
-            Glide.with(this).load(ActorsImg.get(0)).into(mIvActorImg1);
+            Glide.with(this).load(ActorsImg.get(0)).apply(new RequestOptions().circleCrop()).into(mIvActorImg1);
             mTvActorName1.setText(ActorsName.get(0));
             mTvActorEnName1.setText(ActorsEnName.get(0));
 //            mIvActorImg1.setBackground(new ShapeDrawable(new OvalShape()));
@@ -103,7 +104,7 @@ public class MovieInfoFragment extends BaseFragment   {
             Log.e("ddddd",""+e.getMessage());
         }
         try {
-            Glide.with(this).load(ActorsImg.get(1)).into(mIvActorImg2);
+            Glide.with(this).load(ActorsImg.get(1)).apply(new RequestOptions().circleCrop()).into(mIvActorImg2);
             mTvActorName2.setText(ActorsName.get(1));
             mTvActorEnName2.setText(ActorsEnName.get(1));
 //            mIvActorImg2.setBackground(new ShapeDrawable(new OvalShape()));
@@ -112,7 +113,7 @@ public class MovieInfoFragment extends BaseFragment   {
             e.printStackTrace();
         }
         try {
-            Glide.with(this).load(ActorsImg.get(2)).into(mIvActorImg3);
+            Glide.with(this).load(ActorsImg.get(2)).apply(new RequestOptions().circleCrop()).into(mIvActorImg3);
             mTvActorName3.setText(ActorsName.get(2));
             mTvActorEnName3.setText(ActorsEnName.get(2));
 //            mIvActorImg3.setBackground(new ShapeDrawable(new OvalShape()));
@@ -121,7 +122,7 @@ public class MovieInfoFragment extends BaseFragment   {
             e.printStackTrace();
         }
         try {
-            Glide.with(this).load(ActorsImg.get(3)).into(mIvActorImg4);
+            Glide.with(this).load(ActorsImg.get(3)).apply(new RequestOptions().circleCrop()).into(mIvActorImg4);
             mTvActorName4.setText(ActorsName.get(3));
             mTvActorEnName4.setText(ActorsEnName.get(3));
 //            mIvActorImg4.setBackground(new ShapeDrawable(new OvalShape()));
@@ -130,7 +131,7 @@ public class MovieInfoFragment extends BaseFragment   {
             e.printStackTrace();
         }
         try {
-            Glide.with(this).load(ActorsImg.get(4)).into(mIvActorImg5);
+            Glide.with(this).load(ActorsImg.get(4)).apply(new RequestOptions().circleCrop()).into(mIvActorImg5);
             mTvActorName5.setText(ActorsName.get(4));
             mTvActorEnName5.setText(ActorsEnName.get(4));
 //            mIvActorImg5.setBackground(new ShapeDrawable(new OvalShape()));

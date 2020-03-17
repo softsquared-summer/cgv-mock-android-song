@@ -20,6 +20,7 @@ public class ChartResponse {
     @SerializedName("message")
     public String message;
 
+
     public boolean getIsSuccess() {
         return isSuccess;
     }
@@ -36,9 +37,11 @@ public class ChartResponse {
     }
     public class Result{
 
+        @SerializedName("RNUM")
+        public int RNUM;
+
         @SerializedName("id")
         public int id;
-
         @SerializedName("title")
         public String title;
 
@@ -59,6 +62,10 @@ public class ChartResponse {
 
         public int getId() {
             return id;
+        }
+
+        public int getRNUM() {
+            return RNUM;
         }
         public String getTitle() {
             return title;

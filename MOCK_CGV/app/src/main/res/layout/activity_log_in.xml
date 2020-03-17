@@ -43,6 +43,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:inputType="text"
             android:textColorHint="#d3d3d3"
             android:background="@null"
             android:hint="CGV 아이디" />
@@ -64,6 +65,7 @@
             android:layout_marginTop="10dp"
             android:textColorHint="#d3d3d3"
             android:background="@null"
+            android:inputType="textPassword"
             android:hint="CGV 비밀번호" />
         <View
             android:layout_width="match_parent"

@@ -50,6 +50,7 @@
                         android:id="@+id/movie_detail_tv_book_rate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="12dp"
                         android:text="@string/movie_detail_book_rate"
                         android:textColor="@color/movie_detail_book_rate" />
 
@@ -58,24 +59,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/movie_detail_release_date"
+                        android:textSize="12dp"
                         android:textColor="@color/movie_detail_release_date" />
                 </LinearLayout>
 
             </FrameLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_centerInParent="true"
-                android:background="@color/gam_fill" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="90dp"
+                android:background="#ffffff"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/movie_detail_main_img"
-                    android:layout_width="80dp"
+                    android:layout_width="70dp"
                     android:scaleType="fitXY"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -84,24 +82,38 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
                     android:orientation="vertical"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="10dp">
+                    android:paddingTop="20dp">
 
-                    <TextView
-                        android:id="@+id/movie_detail_tv_title"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"
-                        android:layout_gravity="center"/>
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/movie_detail_tv_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|left"
+                            android:textColor="#000000"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:id="@+id/movie_detail_iv_view_age"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|left"
+                            android:layout_marginLeft="5dp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/movie_detail_tv_en_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center"
+                        android:textColor="#bdbdbd" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -113,14 +125,16 @@
                 android:weightSum="3">
 
                 <Button
+                    android:id="@+id/movie_detail_btn_liked"
                     android:layout_width="0dp"
-                    android:onClick="onclick"
-                    android:layout_weight="1"
-                    android:drawableTop="@drawable/ic_favorite_black_24dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/my_button"
+                    android:onClick="postLiked"
+                    android:paddingTop="10dp"
+                    style="?android:attr/borderlessButtonStyle"
                     android:shadowColor="#ffffff"
-                    android:background="#ffffff"
-                    android:paddingTop="10dp"/>
+                    android:textColor="#808080" />
 
                 <Button
                     android:onClick="onclick"
@@ -128,22 +142,25 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:text="공유하기"
+                    style="?android:attr/borderlessButtonStyle"
                     android:drawableTop="@drawable/ic_share_black_24dp"
                     android:layout_height="match_parent"
-                    android:background="#ffffff"
+                    android:background="@drawable/my_button"
+                    android:textColor="#808080"
                     android:paddingTop="10dp"
                     android:shadowColor="#ffffff"/>
                 <Button
                     android:id="@+id/movie_detail_btn_book"
                     android:layout_width="0dp"
-
                     android:layout_weight="1"
                     android:text="예매하기"
                     android:paddingTop="10dp"
+                    android:textColor="#808080"
                     android:onClick="onClick"
+                    style="?android:attr/borderlessButtonStyle"
                     android:drawableTop="@drawable/ic_bookmark_black_24dp"
                     android:layout_height="match_parent"
-                    android:background="#ffffff"
+                    android:background="@drawable/my_button"
                     android:shadowColor="#ffffff"/>
 
 

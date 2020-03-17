@@ -1,7 +1,9 @@
 package com.example.mock_cgv.src.main.signup;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,11 +18,18 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     int mBirthday=0,mSexState=3;
 
     TextView mTvManBlack,mTvManRed,mTvFemaleBlack,mTvFemaleRed;
+    InputMethodManager mInputMethodManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+
+
+
         mEdtSignUpId=(EditText)findViewById(R.id.signup_edt_id);
         mEdtSignUpPwd=(EditText)findViewById(R.id.signup_edt_password);
         mEdtSignUpEmail=(EditText)findViewById(R.id.signup_edt_email);
@@ -83,7 +92,27 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
-                sendPostSignUp(mId,mPwd,mEmail,mName,mSexState,mBirthday);
+                if(mId.length()==0){
+                    showCustomToast("아이디를 입력하세요");
+                    mInputMethodManager.hideSoftInputFromWindow(mEdtSignUpId.getWindowToken(), 0 );
+                }else if(mPwd.length()==0){
+                    showCustomToast("비밀번호를 입력하세요");
+                    mInputMethodManager.hideSoftInputFromWindow(mEdtSignUpPwd.getWindowToken(), 0 );
+                }else if(mEmail.length()==0){
+                    showCustomToast("이메일을 입력하세요");
+                    mInputMethodManager.hideSoftInputFromWindow(mEdtSignUpEmail.getWindowToken(), 0 );
+                }else if(mName.length()==0){
+                    showCustomToast("이름을 입력하세요");
+                    mInputMethodManager.hideSoftInputFromWindow(mEdtSignUpName.getWindowToken(),0);
+                }else if(mEdtSignUpBirthday.getText().toString().length()==0){
+                    showCustomToast("생일을 입력하세요");
+                    mInputMethodManager.hideSoftInputFromWindow(mEdtSignUpBirthday.getWindowToken(),0);
+                }else{
+                    sendPostSignUp(mId,mPwd,mEmail,mName,mSexState,mBirthday);
+
+                }
+
+
                 break;
             default:
                 break;
@@ -105,6 +134,7 @@ public class SignUpActivity extends BaseActivity implements SignUpActivityView {
     public void SignUpSuccess(String message, int code) {
         hideProgressDialog();
         showCustomToast(message);
+        mInputMethodManager.hideSoftInputFromWindow(mEdtSignUpId.getWindowToken(),0);
 
         if(code==100){
             onBackPressed();

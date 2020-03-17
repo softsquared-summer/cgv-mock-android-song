@@ -60,7 +60,6 @@ public class HomeFragment extends BaseFragment  {
                 startActivity(intent);
             }
         });
-
         /*
 
         무비차트는 리사이클러 뷰 아님, 차트 도메인으로 가야 리사이클러 뷰 있다. 스와이프 안되는 뷰페이져다.
@@ -68,6 +67,7 @@ public class HomeFragment extends BaseFragment  {
         좋아할것 같아서는 리사이클러뷰임
 
          */
+
 
 
         //무비차트
@@ -91,7 +91,6 @@ public class HomeFragment extends BaseFragment  {
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         });
-
 
 //        //좋아할것같아서
 //        ArrayList<String> list = new ArrayList<>();

@@ -104,6 +104,7 @@
                 android:paddingBottom="15dp"
                 android:paddingLeft="10dp"
                 android:layout_marginLeft="25dp"
+                android:inputType="text"
                 android:layout_marginRight="25dp"/>
 
             <TextView
@@ -128,6 +129,7 @@
                 <FrameLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:layout_marginRight="2dp"
                     android:layout_height="50dp">
                     <TextView
                         android:id="@+id/signup_tv_male"
@@ -139,7 +141,7 @@
                         android:textAlignment="center"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:gravity="center_vertical"/>
+                        android:gravity="center_vertical" />
                     <TextView
                         android:id="@+id/sign_up_male_black"
                         android:layout_width="match_parent"
@@ -164,6 +166,7 @@
                 <FrameLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
                     android:layout_height="50dp">
                     <TextView
                         android:id="@+id/signup_tv_female"
@@ -227,13 +230,14 @@
                 android:id="@+id/signup_edt_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="아이디"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:paddingLeft="10dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:background="#ffffff"/>
+                android:inputType="text"
+                android:background="#ffffff"
+                android:hint="아이디"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp" />
 
             <TextView
                 android:text="@string/sign_up_get_password"
@@ -253,6 +257,7 @@
                 android:hint="비밀번호"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
+                android:inputType="text"
                 android:paddingLeft="10dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
@@ -273,6 +278,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="이메일"
+                android:inputType="text"
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp"
                 android:paddingLeft="10dp"
@@ -299,6 +305,7 @@
                 android:hint="@string/sign_up_birthday"
                 android:background="#ffffff"
                 android:paddingBottom="15dp"
+                android:inputType="text"
                 android:paddingTop="15dp"
                 android:paddingLeft="10dp"
                 android:layout_marginLeft="25dp"
