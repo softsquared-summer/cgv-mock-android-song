@@ -2,7 +2,10 @@ package com.example.mock_cgv.src.main.home.chart;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.media.session.PlaybackState;
+import android.media.tv.TvView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +48,7 @@ public class ChartRecyclerViewAdapter extends RecyclerView.Adapter<ChartRecycler
                 .load(items.get(position).getImgUrl())
                 .into(viewHolder.IvMainImg);
 
+        viewHolder.IvMainImg.setColorFilter(Color.parseColor("#BDBDBD"), PorterDuff.Mode.MULTIPLY);
 
 
         String imageUrl = items.get(position).getImgUrl();
@@ -53,9 +57,29 @@ public class ChartRecyclerViewAdapter extends RecyclerView.Adapter<ChartRecycler
         String ticketingratio = items.get(position).getTicketingRatio();
         viewHolder.TvTitle.setText(title);
         viewHolder.TvGoldenEggRatio.setText(goldeneggratio+"%·");
-        viewHolder.TvTicketingRatio.setText("예매율 "+ticketingratio);
+        viewHolder.TvTicketingRatio.setText("예매율 "+ticketingratio+"%");
 
+        int num = items.get(position).getRnum();
+        viewHolder.TvCount.setText(String.valueOf(num));
 
+        int age = items.get(position).getViewAge();
+        if(age==0){
+            Glide.with(viewHolder.itemView.getContext())
+                    .load(R.drawable.rating_all)
+                    .into(viewHolder.IvViewAge);
+        }else if(age==12){
+            Glide.with(viewHolder.itemView.getContext())
+                    .load(R.drawable.rating_12)
+                    .into(viewHolder.IvViewAge);
+        }else if(age==15){
+            Glide.with(viewHolder.itemView.getContext())
+                    .load(R.drawable.rating_15)
+                    .into(viewHolder.IvViewAge);
+        }else if(age==19){
+            Glide.with(viewHolder.itemView.getContext())
+                    .load(R.drawable.rating_18)
+                    .into(viewHolder.IvViewAge);
+        }
     }
 
 
@@ -67,8 +91,8 @@ public class ChartRecyclerViewAdapter extends RecyclerView.Adapter<ChartRecycler
 
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        ImageView IvMainImg;
-        TextView TvTitle,TvGoldenEggRatio,TvTicketingRatio,TvBookNow;
+        ImageView IvMainImg,IvViewAge;
+        TextView TvTitle,TvGoldenEggRatio,TvTicketingRatio,TvBookNow,TvCount;
         Context context;
 
         ViewHolder(@NonNull View itemView) {
@@ -78,6 +102,8 @@ public class ChartRecyclerViewAdapter extends RecyclerView.Adapter<ChartRecycler
             TvGoldenEggRatio=itemView.findViewById(R.id.chart_tv_goldenEggRatio);
             TvTicketingRatio=itemView.findViewById(R.id.chart_tv_ticketingRatio);
             TvBookNow=itemView.findViewById(R.id.chart_book_now);
+            TvCount=itemView.findViewById(R.id.chart_tv_count);
+            IvViewAge =itemView.findViewById(R.id.chart_iv_view_age);
 
             context = itemView.getContext();
             IvMainImg.setOnClickListener(this);

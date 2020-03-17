@@ -1,11 +1,14 @@
 package com.example.mock_cgv.src.main.login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.example.mock_cgv.R;
@@ -21,7 +24,7 @@ import static com.example.mock_cgv.src.ApplicationClass.sSharedPreferences;
 public class LogInActivity extends BaseActivity implements LogInActivityView {
     EditText mEdtUserId,mEdtPwd;
     String mUserId,mPwd;
-
+    InputMethodManager inputMethodManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +38,11 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
 
-
-
-
-
         //로그인
         mEdtUserId=(EditText)findViewById(R.id.login_edt_userid);
         mEdtPwd=(EditText)findViewById(R.id.login_edt_pwd);
+
+        inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE); // 키보드 객체 받아오기
 
     }
 
@@ -84,9 +85,20 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
             case R.id.login_tv_login:
                 mUserId=mEdtUserId.getText().toString();
                 mPwd=mEdtPwd.getText().toString();
-                sendPostLogIn(mUserId,mPwd);
-                break;
 
+
+                if(mUserId.length()==0) {
+                    showCustomToast("아이디를 입력하세요");
+                    inputMethodManager.hideSoftInputFromWindow(mEdtUserId.getWindowToken(),0);
+                }
+                else if(mPwd.length()==0){
+                    showCustomToast("비밀번호를 입력하세요");
+                    inputMethodManager.hideSoftInputFromWindow(mEdtPwd.getWindowToken(),0);
+                }else{
+                    sendPostLogIn(mUserId,mPwd);
+                }
+
+                break;
             default:
                 break;
         }
@@ -101,7 +113,7 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
 
     @Override
     public void LogInFail() {
-        showCustomToast("로그인 실패");
+        showCustomToast("서버와 연결을 실패했습니다.");
         hideProgressDialog();
     }
 
@@ -112,13 +124,14 @@ public class LogInActivity extends BaseActivity implements LogInActivityView {
             //값저장
             SharedPreferences.Editor editor = sSharedPreferences.edit();
             editor.putString(X_ACCESS_TOKEN, result.getJwt());
-            editor.commit();
+            editor.apply();
 
             showCustomToast("로그인 되었습니다.");
             onBackPressed();
         }
         else{
             showCustomToast(message);
+            inputMethodManager.hideSoftInputFromWindow(mEdtUserId.getWindowToken(),0);
         }
     }
 

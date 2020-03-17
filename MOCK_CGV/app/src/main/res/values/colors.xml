@@ -26,4 +26,10 @@
     <!-- 회원가입창-->
     <color name="sign_up_toolbar">#FFFFFF</color>
     <color name="sing_up_top_linear">#FFFFFF</color>
+
+    <color name="transparent">#1A000000</color>
+
+    <color name="if_not_touch">#ffffff</color>
+    <color name="if_touch">#6000BFFF</color>
+
 </resources>

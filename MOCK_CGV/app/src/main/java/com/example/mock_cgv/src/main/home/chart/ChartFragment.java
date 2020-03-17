@@ -4,15 +4,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.mock_cgv.R;
 import com.example.mock_cgv.src.BaseFragment;
@@ -47,7 +44,7 @@ public class ChartFragment extends BaseFragment implements ChartFragmentView {
     @Override
     public void GetChartSuccess(ArrayList<ChartResponse.Result> results) {
 
-        int id,viewAge,goldenEggRatio;
+        int id,viewAge,goldenEggRatio,num;
         String title,releaseDate,thumbnail,ticketingRatio;
 
         for(int i=0;i<results.size();i++){
@@ -58,10 +55,10 @@ public class ChartFragment extends BaseFragment implements ChartFragmentView {
             title=results.get(i).title;
             releaseDate=results.get(i).releaseDate;
             thumbnail=results.get(i).thumbnail;
-            Chart chart = new Chart(id,title,viewAge,releaseDate,thumbnail,goldenEggRatio,ticketingRatio);
+            num=results.get(i).RNUM;
+            Chart chart = new Chart(id,title,viewAge,releaseDate,thumbnail,goldenEggRatio,ticketingRatio,num);
             items.add(chart);
         }
-
 
         //가로 리사이클러
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));

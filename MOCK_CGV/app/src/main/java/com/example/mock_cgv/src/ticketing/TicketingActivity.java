@@ -44,7 +44,6 @@ public class TicketingActivity extends BaseActivity implements TicketingActivity
 
     String mLoginState;
 
-
     //예매할때 인원 수 체크
     int mCountAdult=0;
     int mCountStudent=0;
@@ -60,7 +59,6 @@ public class TicketingActivity extends BaseActivity implements TicketingActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticketing);
-
 
         //툴바
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.ticketing_tb_toolbar);
@@ -120,7 +118,7 @@ public class TicketingActivity extends BaseActivity implements TicketingActivity
             String theaterName = result.getTheaterName();
             String date = result.getDate();
             String uniqueMovieTimeId,uniqueRoomId,startTime,endTime,seatCount,totalSeat;
-            Log.e("dklsfdlk",""+result.getTime().size());
+
             for(int i=0;i<result.getTime().size();i++){
                 uniqueMovieTimeId=result.getTime().get(i).getUniqueMovieTimeId();
                 uniqueRoomId=result.getTime().get(i).getUniqueRoomId();
@@ -136,13 +134,6 @@ public class TicketingActivity extends BaseActivity implements TicketingActivity
                 timetables.add(timeTableInfo);
             }
         }
-//        Log.e("dkdkdkdk",""+timetables.size());
-//        for(int i=0;i<timetables.size();i++){
-//            Log.e("dkdkdkdk",""+timetables.get(i).getStartTime());
-//            Log.e("dkdkdkdk",""+timetables.get(i).getEndTime());
-//
-//        }
-
 
         mRecyclerView=findViewById(R.id.ticketing_recycler_movie_theater);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false));
