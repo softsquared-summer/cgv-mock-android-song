@@ -1,6 +1,6 @@
 <resources>
     <!-- Common -->
-    <string name="app_name">MOCK_CGV</string>
+    <string name="app_name">CGV</string>
     <string name="loading">로딩중입니다.</string>
     <string name="network_error">네트워크 연결이 원활하지 않습니다.</string>
 

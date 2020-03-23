@@ -31,5 +31,7 @@
 
     <color name="if_not_touch">#ffffff</color>
     <color name="if_touch">#6000BFFF</color>
+    <color name="number_select_button">#A52A2A</color>
+    <color name="ticketing_blur">#26000000</color>
 
 </resources>

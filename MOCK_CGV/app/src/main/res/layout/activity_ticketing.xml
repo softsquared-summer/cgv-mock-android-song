@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".src.ticketing.TicketingActivity">
+    android:background="#f0f0f0"
+    tools:context=".src.main.ticketing.TicketingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -101,7 +102,6 @@
                 android:id="@+id/ticketing_tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:gravity="center_vertical"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
@@ -142,12 +142,48 @@
                     android:gravity="center"
                     android:orientation="horizontal">
                     <ImageView
-                        android:id="@+id/ticketing_iv_thumbnail"
                         android:layout_width="100dp"
                         android:padding="1dp"
+                        android:src="@drawable/poster1"
+                        android:scaleType="fitXY"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:background="@drawable/ticketing_border"/>
+                        android:layout_marginLeft="5dp"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:padding="1dp"
+                        android:src="@drawable/poster2"
+                        android:scaleType="fitXY"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/ticketing_iv_thumbnail"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/ticketing_border"
+                        android:padding="1dp"
+                        android:layout_marginLeft="5dp"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:padding="1dp"
+                        android:src="@drawable/poster3"
+                        android:scaleType="fitXY"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"/>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:padding="1dp"
+                        android:src="@drawable/poster4"
+                        android:scaleType="fitXY"
+                        android:layout_marginLeft="5dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center" />
 
 
                 </LinearLayout>
@@ -164,6 +200,134 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="horizontal"
+            android:weightSum="7">
+            <TextView
+                android:text="오늘"
+                android:textColor="#A52A2A"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="내일"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="일"
+                android:textColor="#A52A2A"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="월"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="화"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="수"
+                android:textColor="@color/ticketing_blur"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="목"
+                android:textColor="@color/ticketing_blur"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:weightSum="7">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="21"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:background="@drawable/circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+                android:text="22"
+                android:textSize="@dimen/ticketing_dates"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="23"
+                android:textSize="@dimen/ticketing_dates"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:textColor="#A52A2A"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="24"
+                android:textSize="@dimen/ticketing_dates"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="25"
+                android:textSize="@dimen/ticketing_dates"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="26"
+                android:textColor="@color/ticketing_blur"
+                android:textSize="@dimen/ticketing_dates"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:text="27"
+                android:textColor="@color/ticketing_blur"
+                android:textSize="@dimen/ticketing_dates"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+        <TextView
+            android:text="2020년 3월 21일 토요일·오늘"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
 
         <LinearLayout
             android:id="@+id/ticketing_downside"

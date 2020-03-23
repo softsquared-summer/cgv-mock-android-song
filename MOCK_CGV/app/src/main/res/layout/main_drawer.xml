@@ -55,8 +55,7 @@
             android:layout_height="50dp"
             android:text="@string/main_drawer_book_movie"
             android:onClick="customOnClick"
-            android:gravity="center_vertical"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textColor="@color/MenuTextColor"/>
         <View
             android:layout_width="match_parent"
@@ -67,10 +66,9 @@
             android:id="@+id/drawer_tv_ticketing_theater"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:onClick="customOnClick"
             android:text="@string/main_drawer_book_teather"
-            android:textAlignment="center"
             android:textColor="@color/MenuTextColor"/>
         <View
             android:layout_width="match_parent"
@@ -83,8 +81,7 @@
             android:layout_height="50dp"
             android:text="@string/main_drawer_fastorder"
             android:onClick="customOnClick"
-            android:gravity="center_vertical"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textColor="@color/MenuTextColor"/>
         <View
             android:layout_width="match_parent"
