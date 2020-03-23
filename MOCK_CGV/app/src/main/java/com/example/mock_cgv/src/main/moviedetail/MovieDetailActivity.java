@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,7 +23,7 @@ import com.example.mock_cgv.src.main.home.NonSwipeViewPager;
 import com.example.mock_cgv.src.main.moviedetail.interfaces.MovieDetailActivityView;
 import com.example.mock_cgv.src.main.moviedetail.models.LikedResponse;
 import com.example.mock_cgv.src.main.moviedetail.models.MovieDetailResponse;
-import com.example.mock_cgv.src.ticketing.TicketingActivity;
+import com.example.mock_cgv.src.main.ticketing.TicketingActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -206,6 +207,7 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailActi
             mBtnLiked.setCompoundDrawablesWithIntrinsicBounds(null, img1, null, null);
             mBtnLiked.setTextColor(Color.parseColor("#A52A2A"));
             LikedFlag=true;
+
             }else{ //좋아요 안누른 상태
                 mBtnLiked.setText(String.valueOf(result.count));
                 Drawable img = this.getResources().getDrawable(R.drawable.ic_favorite_black_24dp);
@@ -271,6 +273,13 @@ public class MovieDetailActivity extends BaseActivity implements MovieDetailActi
                 }
             }).start();
             LikedFlag=true;
+            LayoutInflater layoutInflater = getLayoutInflater();
+            View toastDesign = layoutInflater.inflate(R.layout.toast_design,(ViewGroup)findViewById(R.id.toast_design_root));
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.setView(toastDesign);
+            toast.show();
 
         }else if(LikedFlag==true){
             final Drawable img = this.getResources().getDrawable(R.drawable.ic_favorite_black_24dp);

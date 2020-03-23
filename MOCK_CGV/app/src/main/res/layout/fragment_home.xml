@@ -1,345 +1,434 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_swipe_refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".src.main.home.HomeFragment"
-    android:id="@+id/home_swipe_refresh_layout">
+    tools:context=".src.main.home.HomeFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <!-- 맨위에 동영상-->
-        <FrameLayout
-            android:id="@+id/home_video"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/home_iv_video_thumbnail"
+            <!-- 맨위에 동영상-->
+            <FrameLayout
+                android:id="@+id/home_video"
                 android:layout_width="match_parent"
-                android:background="@drawable/homethumbnail"
-                android:layout_height="match_parent"/>
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_play_circle_outline_black_24dp"/>
-        </FrameLayout>
+                android:layout_height="230dp"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/home_ll_video"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:weightSum="10"
-            android:background="#ffffff"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:src="@drawable/man"
-                android:layout_height="wrap_content"/>
+                <ImageView
+                    android:id="@+id/home_iv_video_thumbnail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/homethumbnail" />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_play_circle_outline_black_24dp" />
+            </FrameLayout>
+
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="7">
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:text="베를린을 사로잡은 압도적 서스펜스!"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_width="wrap_content"
+                android:id="@+id/home_ll_video"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <ImageView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="사냥의 시간"/>
-            </LinearLayout>
+                    android:layout_weight="1"
+                    android:src="@drawable/man" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="7"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="베를린을 사로잡은 압도적 서스펜스!"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="사냥의 시간" />
+                </LinearLayout>
 
                 <Button
-                    android:text="상세보기"
-                    android:textColor="#707070"
-                    android:layout_weight="2"
-                    android:layout_width="0dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/borderhome"
                     style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginTop="11dp"
-                    android:layout_marginBottom="11dp"
                     android:layout_marginRight="10dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_marginBottom="11dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/borderhome"
+                    android:text="상세보기"
+                    android:textColor="#707070" />
 
 
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_centerInParent="true"
-            android:background="@color/gam_fill"/>
+            </LinearLayout>
 
-        <ImageView
-            android:id="@+id/home_ad1"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/advertisment1"/>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_centerInParent="true"
-            android:background="@color/gam_fill"/>
-
-        <LinearLayout
-            android:id="@+id/home_movie_chart_art_house"
-            android:layout_width="match_parent"
-            android:layout_height="440dp"
-            android:layout_marginLeft="10dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center_vertical"
-                android:textStyle="bold"
-                android:textColor="@color/home_important"
-                android:text="@string/home_chart_movie_chart"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="10dp"
                 android:layout_centerInParent="true"
-                android:background="#d3d3d3"/>
-            <com.google.android.material.tabs.TabLayout
+                android:background="@color/gam_fill" />
+
+            <ImageView
+                android:id="@+id/home_ad1"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:id="@+id/home_tablayout"
-                app:tabSelectedTextColor="#4682B4"
-                app:tabIndicatorColor="#00ff0000"
-                app:tabMode="scrollable">
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
+                android:layout_height="58dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/advertisment1" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_centerInParent="true"
+                android:background="@color/gam_fill" />
+
+            <LinearLayout
+                android:id="@+id/home_movie_chart_art_house"
+                android:layout_width="match_parent"
+                android:layout_height="440dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/home_chart_movie_chart"
+                    android:textColor="@color/home_important"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:background="#d3d3d3" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/home_tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:tabIndicatorColor="#00ff0000"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="#4682B4">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_tab_book_chart" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_tab_parasite_special" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_tab_speed_coupon" />
+                </com.google.android.material.tabs.TabLayout>
+
+                <com.example.mock_cgv.src.main.home.NonSwipeViewPager
+                    android:id="@+id/home_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_centerInParent="true"
+                android:background="@color/gam_fill" />
+
+
+            <LinearLayout
+                android:id="@+id/home_not_yet"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:drawableTop="@drawable/ic_loyalty_black_24dp"
+                    android:onClick="ShowNotYet"
+                    android:paddingTop="15dp"
+                    android:text="서프라이즈"
+                    android:textColor="#808080"
+                    tools:ignore="OnClick" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:drawableTop="@drawable/ic_event_available_black_24dp"
+                    android:paddingTop="15dp"
+                    android:text="스피드쿠폰"
+                    android:textColor="#808080" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:drawableTop="@drawable/ic_card_giftcard_black_24dp"
+                    android:paddingTop="15dp"
+                    android:text="기프트샵"
+                    android:textColor="#808080" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:drawableTop="@drawable/ic_create_black_24dp"
+                    android:paddingTop="15dp"
+                    android:text="실관람객등록"
+                    android:textColor="#808080" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_centerInParent="true"
+                android:background="@color/gam_fill" />
+
+
+            <ImageView
+                android:id="@+id/home_iv_lexus_ad"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ad1" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_centerInParent="true"
+                android:background="@color/gam_fill" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#d3d3d3"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="70dp">
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_tab_book_chart"/>
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:text="이용약관·개인정보 처리방침·법적고지"
+                    android:textAlignment="viewEnd" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerInParent="true"
+                    android:background="#bdbdbd" />
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_tab_parasite_special"/>
-                <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="대표이사"
+                        android:textAlignment="viewStart" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:text="최병환"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_tab_speed_coupon"/>
-            </com.google.android.material.tabs.TabLayout>
-            <com.example.mock_cgv.src.main.home.NonSwipeViewPager
-                android:id="@+id/home_viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="사업자등록번호"
+                        android:textAlignment="viewStart" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:text="104-81-45690"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="통신판매업신고번호"
+                        android:textAlignment="viewStart" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:text="2017-서울용산-0662 사업자정보확인"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="개인정보보호 책임자"
+                        android:textAlignment="viewStart" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:text="정종민"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="주소"
+                        android:textAlignment="viewStart" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:text="(04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="호스팅사업자"
+                        android:textAlignment="viewStart" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:text="CJ 올리브네트웍스"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="대표이메일"
+                        android:textAlignment="viewStart" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:text="cjcgvmaster@cj.net"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="고객센터"
+                        android:textAlignment="viewStart" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:text="1544-1122"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:text=" @ CJ CGV.All Rights Reserved"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_centerInParent="true"
-            android:background="@color/gam_fill"/>
-
-
-        <LinearLayout
-            android:id="@+id/home_not_yet"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-            <Button
-                android:onClick="ShowNotYet"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="서프라이즈"
-                android:background="#ffffff"
-                android:paddingTop="15dp"
-                android:textColor="#808080"
-                android:drawableTop="@drawable/ic_loyalty_black_24dp"
-                tools:ignore="OnClick" />
-            <Button
-                android:onClick="ShowNotYet"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:paddingTop="15dp"
-                android:textColor="#808080"
-                android:background="#ffffff"
-                android:drawableTop="@drawable/ic_event_available_black_24dp"
-                android:text="스피드쿠폰"/>
-            <Button
-                android:onClick="ShowNotYet"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:textColor="#808080"
-                android:paddingTop="15dp"
-                android:drawableTop="@drawable/ic_card_giftcard_black_24dp"
-                android:text="기프트샵"/>
-            <Button
-                android:onClick="ShowNotYet"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:background="#ffffff"
-                android:paddingTop="15dp"
-                android:layout_weight="1"
-                android:textColor="#808080"
-                android:drawableTop="@drawable/ic_create_black_24dp"
-                android:text="실관람객등록"/>
-
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_centerInParent="true"
-            android:background="@color/gam_fill"/>
-
-
-        <ImageView
-            android:id="@+id/home_iv_lexus_ad"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ad1" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_centerInParent="true"
-            android:background="@color/gam_fill"/>
-
-<!--
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:orientation="vertical"
-            android:layout_marginLeft="10dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="@string/home_like"
-                android:gravity="center_vertical"
-                android:textStyle="bold"
-                android:textColor="@color/home_important"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/home_rv_like_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
-    -->
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="10dp"-->
-<!--            android:layout_centerInParent="true"-->
-<!--            android:background="@color/gam_fill"/>-->
-
-<!--        <TableLayout-->
-<!--            android:onClick="ShowNotYet"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--            <TableRow android:weightSum="3">-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon1" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon2" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon3" />-->
-<!--            </TableRow>-->
-
-<!--            <TableRow android:weightSum="3">-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon4" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon5" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon6" />-->
-<!--            </TableRow>-->
-
-<!--            <TableRow android:weightSum="3">-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon7" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon8" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon9" />-->
-<!--            </TableRow>-->
-
-<!--            <TableRow android:weightSum="3">-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon10" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon11" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/icon12" />-->
-<!--            </TableRow>-->
-
-<!--        </TableLayout>-->
-
-
-
-    </LinearLayout>
     </ScrollView>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,32 +1,24 @@
 package com.example.mock_cgv.src.main;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.example.mock_cgv.R;
 import com.example.mock_cgv.src.BaseActivity;
 import com.example.mock_cgv.src.main.interfaces.MainActivityView;
 import com.example.mock_cgv.src.main.login.LogInActivity;
-import com.example.mock_cgv.src.select.SelectMovieActivity;
-import com.google.android.material.navigation.NavigationView;
+import com.example.mock_cgv.src.main.select.SelectMovieActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import static com.example.mock_cgv.src.ApplicationClass.X_ACCESS_TOKEN;

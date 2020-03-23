@@ -86,7 +86,7 @@ public class RelatedNewFragment extends BaseFragment implements RelatedNewsFragm
         Percent.add(new BarEntry(mFourtiesPercent,3));
         Percent.add(new BarEntry(mFiftiesPercent,4));
         BarDataSet barDataSet = new BarDataSet(Percent,"");
-//        mAgeBarChart.animate();
+        mAgeBarChart.animate();
         BarData data = new BarData(age,barDataSet);
         barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         mAgeBarChart.setData(data);
@@ -98,9 +98,11 @@ public class RelatedNewFragment extends BaseFragment implements RelatedNewsFragm
         ArrayList sex = new ArrayList();
         sex.add("남자");
         sex.add("여자");
+        sex.size();
         PieData data1 = new PieData(sex,dataSet);
         dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         mSexPieChart.setData(data1);
+        mSexPieChart.animate();
     }
 
     @Override
